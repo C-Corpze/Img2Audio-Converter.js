@@ -14,15 +14,23 @@ Requires these NodeJS libraries:
 `jimp`
 `node-wav`
 
-Install through `npm install [library]`.
+Install through `npm install [library]` INSIDE this project's folder.
 
 Convert image to audio: `node imgtoaud.js convert [image.png]`
 
 Convert audio to image: `node audtoimg.js convert [audio.wav] resX resY`
 
-The `.blend` file is for quickly generating/rendering images to test the conversion with Blender.
-
 
 Note:
+
 -Converting audio to images still does not work properly.
+
 -I want to add more algorithms later, some may not be reversible.
+
+-All images/audio must be in the same folder as the `.js` files.
+
+-The `.blend` file is for quickly generating/rendering images to test the conversion with Blender,
+but any image will work.
+
+-Be warned that large images (4K and such) will generate very long `.wav`s (Roughly 3 minutes
+that can quickly take up lots of space on your hardrive.
