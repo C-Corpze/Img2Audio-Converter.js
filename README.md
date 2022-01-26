@@ -5,6 +5,10 @@ The idea behind this is to be able to edit or create audio through photoshop sof
 I've always wanted to see how audio would look like in image format
 and be able to edit or "draw" it.
 
+I hope to create a algorithm that can convert images <-> audio in such a way that
+the process can be reversed in order to get the source image/audio back
+out of it.
+
 =====================================================================
 Requires these NodeJS libraries:
 jimp
