@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "jimp": "^0.16.1",
+    "node-wav": "^0.0.2"
+  }
+}
