@@ -11,14 +11,17 @@ out of it.
 
 =====================================================================
 Requires these NodeJS libraries:
-jimp
-node-wav
+`jimp`
+`node-wav`
 
 Install through `npm install [library]`.
 
-
 Convert image to audio: `node imgtoaud.js convert [image.png]`
+
 Convert audio to image: `node audtoimg.js convert [audio.wav] resX resY`
+
+The `.blend` file is for quickly generating/rendering images to test the conversion with Blender.
+
 
 Note:
 -Converting audio to images still does not work properly.
