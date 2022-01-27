@@ -23,8 +23,8 @@ function audioToDataArray(file) {
     let channels = wav.decode(buffer).channelData;
 
     for (let i = 0; i < channels[0].length; i++) {
-        dataArray[dataArray.length] = channels[1][i];
         dataArray[dataArray.length] = channels[0][i];
+        dataArray[dataArray.length] = channels[1][i];
     }
 }
 
