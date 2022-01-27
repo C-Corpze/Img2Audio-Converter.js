@@ -51,7 +51,7 @@ function arrayToAudio() { // We convert dataArray to wav
 function toBinary(number, bit) {
   let bin = Math.abs(number)
   bin = number.toString(2);
-  return  '0'.repeat(bit - bin.length) + bin;
+  return '0'.repeat(bit - bin.length) + bin;
 }
 function fromBinary(text) {
   return parseInt(text, 2);
@@ -96,8 +96,8 @@ function imageToAudio(file) { // Simple, straight forward conversion algorithm
       imgY = image.bitmap.height; imgX = image.bitmap.width; // Set the height and width
 
       // Iterate over every pixel because we can
-      for (let x = 0; x < imgX; x++) {
-        for (let y = 0; y < imgX; y++) { // Pixels to dataArray
+      for (let y = 0; y < imgX; y++) {
+        for (let x = 0; x < imgX; x++) { // Pixels to dataArray
 
           switch (conversionMethod) {
             case 1:
@@ -107,7 +107,7 @@ function imageToAudio(file) { // Simple, straight forward conversion algorithm
               dataArray[dataArray.length] = colorToSample_Def(image.getPixelColor(x, y));;
               break;
           }
-          
+
         }
       }
 

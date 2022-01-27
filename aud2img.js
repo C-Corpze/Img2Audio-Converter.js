@@ -23,8 +23,8 @@ function audioToDataArray(file) {
     let channels = wav.decode(buffer).channelData;
 
     for (let i = 0; i < channels[0].length; i++) {
-        dataArray[dataArray.length] = channels[0][i];
         dataArray[dataArray.length] = channels[1][i];
+        dataArray[dataArray.length] = channels[0][i];
     }
 }
 
@@ -100,9 +100,9 @@ function audioToImage(file) {
     let arrayIndex = 0;
 
     // Write image
-    for (let x = 0; x < imgX; x++) {
-        for (let y = 0; y < imgY; y++) {
-            image.setPixelColor(dataArray[arrayIndex], x, y);
+    for (let y = 0; y < imgY; y++) {
+        for (let x = 0; x < imgX; x++) {
+            image.setPixelColor(dataArray[arrayIndex], x, imgY - y);
             arrayIndex += 1;
         }
     }
