@@ -92,13 +92,13 @@ function audioToImage(file) {
     }
 
     console.log(dataArray);
-    // let arrayIndex = 0;
+    let arrayIndex = 0;
 
     // Write image
     for (let x = 0; x < imgX; x++) {
         for (let y = 0; y < imgY; y++) {
-            image.setPixelColor(dataArray[x * y], x, y);
-            // arrayIndex += 1;
+            image.setPixelColor(dataArray[arrayIndex], x, y);
+            arrayIndex += 1;
         }
     }
 
