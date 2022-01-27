@@ -12,9 +12,9 @@ out of it.
 =====================================================================
 Run `install_packages.bat` in command prompt to auto-install all required node packages.
 
-Convert image to audio: `node imgtoaud.js convert [image.png]`
+Convert image to audio: `node img2aud def [image.png]`
 
-Convert audio to image: `node audtoimg.js convert [audio.wav] [resX] [resY]`
+Convert audio to image: `node aud2img def [audio.wav] [resX] [resY]`
 
 
 Note:
