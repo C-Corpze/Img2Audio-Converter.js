@@ -23,7 +23,7 @@ function writeWav(channels) {
     });
 
   fs.writeFile(
-    './' + imgX + 'x' + imgY + '-output.wav',
+    './' + imgX + 'x' + imgY + '.wav',
     buffer, (err) => { if (err) return console.log(err); });
 }
 

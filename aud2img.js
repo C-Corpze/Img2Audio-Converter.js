@@ -8,8 +8,10 @@ console.log(_args);
 
 
 let dataArray = new Array();
-let imgX = 2000;
-let imgY = 200;
+let imgX = 2200;
+let imgY = 2200;
+
+let defaultColor = Jimp.rgbaToInt(0, 0, 0, 255);
 
 
 
@@ -37,7 +39,7 @@ function toBinary(number, bit) {
 
     // Add bits if bitrange too short
     if (bin.length < bit) {
-        bin = '0'.repeat(bit - bin.length) + bin;
+        bin = '0'.repeat(bit - bin.length + 1); + bin;
     }
     // console.log(bin);
 
@@ -75,31 +77,33 @@ function sampleToColor(sample) {
 // The function
 function audioToImage(file) {
     audioToDataArray('./' + file);
-    let image = new Jimp(imgX, imgY);
+    let image = new Jimp(imgX, imgY, defaultColor);
     image.rgba = true;
 
     console.log(dataArray);
 
+    // Convert sample array to a color array
     for (let i = 0; i < dataArray.length; i++) {
         // console.log(dataArray[i]);
         dataArray[i] = sampleToColor(dataArray[i]);
         // console.log(dataArray[i]);
     }
 
+    // Add pixels if array too small
+    if (dataArray.length < imgX * imgY) {
+        while (dataArray.length < imgX * imgY) {
+            dataArray[dataArray.length] = defaultColor;
+        }
+    }
+
     console.log(dataArray);
-    let arrayIndex = 0;
+    // let arrayIndex = 0;
 
     // Write image
     for (let x = 0; x < imgX; x++) {
         for (let y = 0; y < imgY; y++) {
-            if (arrayIndex < dataArray.length) {
-                image.setPixelColor(
-                    dataArray[arrayIndex],
-                    x, y);
-            } else {
-                image.setPixelColor(lowestHex, x, y);
-                console.log('Image too large, filling with solid pixel');
-            }
+            image.setPixelColor(dataArray[x * y], x, y);
+            // arrayIndex += 1;
         }
     }
 
@@ -113,6 +117,8 @@ function audioToImage(file) {
 
 switch (_args[2]) {
     case 'convert':
+        imgX = parseInt(_args[4]);
+        imgY = parseInt(_args[5]);
         audioToImage(_args[3]);
         break;
 
