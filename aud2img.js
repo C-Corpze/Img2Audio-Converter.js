@@ -102,7 +102,7 @@ function audioToImage(file) {
     // Write image
     for (let y = 0; y < imgY; y++) {
         for (let x = 0; x < imgX; x++) {
-            image.setPixelColor(dataArray[arrayIndex], x, imgY - y);
+            image.setPixelColor(dataArray[arrayIndex], x, y);
             arrayIndex += 1;
         }
     }
