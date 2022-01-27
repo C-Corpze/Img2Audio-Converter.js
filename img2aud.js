@@ -51,7 +51,7 @@ function arrayToAudio() { // We convert dataArray to wav
 function toBinary(number, bit) {
   let bin = Math.abs(number)
   bin = number.toString(2);
-  return '0'.repeat(bit - bin.length) + bin;
+  return  '0'.repeat(bit - bin.length) + bin;
 }
 function fromBinary(text) {
   return parseInt(text, 2);
