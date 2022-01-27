@@ -10,6 +10,8 @@ let dataArray = new Array();
 let imgX = 200;
 let imgY = 1800;
 
+let conversionMethod = 0;
+
 
 // File stuff
 function writeWav(channels) {
@@ -57,22 +59,35 @@ function fromBinary(text) {
 
 
 
-
+// Math
 function lerp(v1, v2, a) {
   return v1 + (v2 - v1) * a;
 }
 
-function colorToSample(hex) {
-  let {r, g, b, a} = Jimp.intToRGBA(hex);
-  let bin = toBinary(r, 8) + toBinary(g, 8) + toBinary(b, 8)  + toBinary(a, 8);
+
+
+
+// Default conversion method
+function colorToSample_Def(hex) {
+  let { r, g, b, a } = Jimp.intToRGBA(hex);
+  let bin = toBinary(r, 8) + toBinary(g, 8) + toBinary(b, 8) + toBinary(a, 8);
   let number = fromBinary(bin) / 4_294_967_296 // 32b - 4_294_967_296 ; 24b - 16_777_216;
   return (number * 2) - 1;
 }
 
 
+// other conversion methods
+function colorToSample_Sin(hex) {
+  let { r, g, b, a } = Jimp.intToRGBA(hex);
+  return Math.sin(r) * Math.sin(g) * Math.sin(b) * Math.sin(a);
+}
+
+
+
+
+
 
 // Main functions
-
 
 function imageToAudio(file) { // Simple, straight forward conversion algorithm
   Jimp.read('./' + file).then(
@@ -83,7 +98,16 @@ function imageToAudio(file) { // Simple, straight forward conversion algorithm
       // Iterate over every pixel because we can
       for (let x = 0; x < imgX; x++) {
         for (let y = 0; y < imgX; y++) { // Pixels to dataArray
-          dataArray[dataArray.length] = colorToSample(image.getPixelColor(x, y));;
+
+          switch (conversionMethod) {
+            case 1:
+              dataArray[dataArray.length] = colorToSample_Sin(image.getPixelColor(x, y));;
+              break;
+            default:
+              dataArray[dataArray.length] = colorToSample_Def(image.getPixelColor(x, y));;
+              break;
+          }
+          
         }
       }
 
@@ -94,7 +118,7 @@ function imageToAudio(file) { // Simple, straight forward conversion algorithm
 
       console.log(dataArray);
       arrayToAudio();
-      
+
     }).catch(err => { console.log('Something went wrong loading the image\n'); console.log(err); });
 }
 
@@ -103,8 +127,15 @@ function imageToAudio(file) { // Simple, straight forward conversion algorithm
 // Command line buttsauce
 
 switch (_args[2]) {
-  case 'convert':
+  case 'def':
     imageToAudio(_args[3]);
+    console.log('\nUsed the default method\n');
+    break;
+
+  case 'sin':
+    conversionMethod = 1;
+    imageToAudio(_args[3]);
+    console.log('\nUsed the sin method\n');
     break;
 
   case 'printwav': // For reading the structure of a wav file

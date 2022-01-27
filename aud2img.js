@@ -111,7 +111,7 @@ function audioToImage(file) {
 // Command line buttsauce
 
 switch (_args[2]) {
-    case 'convert':
+    case 'def':
         imgX = parseInt(_args[4]);
         imgY = parseInt(_args[5]);
         audioToImage(_args[3]);
