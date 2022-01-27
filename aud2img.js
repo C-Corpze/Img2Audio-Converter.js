@@ -31,23 +31,18 @@ function audioToDataArray(file) {
 
 // Conversion stuff
 function toBinary(number, bit) {
-    // console.log(number + ' bit: ' + bit);
-
     // Make binary
     let bin = Math.abs(number).toString(2);
-    // console.log(bin);
-
     // Add bits if bitrange too short
     if (bin.length < bit) {
         bin = '0'.repeat(bit - bin.length + 1); + bin;
     }
-    // console.log(bin);
-
     return bin;
 }
 function fromBinary(text) {
     return Math.abs(parseInt(text, 2));
 }
+
 
 
 function sampleToColor(sample) {
@@ -122,12 +117,12 @@ switch (_args[2]) {
         audioToImage(_args[3]);
         break;
 
-    case 'printwav': // For reading the structure of a wav file
-        let buffer = fs.readFileSync('./' + _args[3]);
-        let channels = wav.decode(buffer);
-        console.log(channels.sampleRate);
-        console.log(channels.channelData);
-        break;
+    // case 'printwav': // For reading the structure of a wav file
+    //     let buffer = fs.readFileSync('./' + _args[3]);
+    //     let channels = wav.decode(buffer);
+    //     console.log(channels.sampleRate);
+    //     console.log(channels.channelData);
+    //     break;
 
     default: // For the lazy
         audioToImage('audin.wav');
