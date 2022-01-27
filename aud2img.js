@@ -37,7 +37,7 @@ function toBinary(number, bit) {
     let bin = Math.abs(number).toString(2);
     // Add bits if bitrange too short
     if (bin.length < bit) {
-        bin = '0'.repeat(bit - bin.length + 1); + bin;
+        bin = '0'.repeat(bit - bin.length) + bin;
     }
     return bin;
 }
