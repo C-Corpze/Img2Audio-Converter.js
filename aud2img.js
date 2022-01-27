@@ -11,6 +11,8 @@ let dataArray = new Array();
 let imgX = 2200;
 let imgY = 2200;
 
+let conversionMethod = 0;
+
 let defaultColor = Jimp.rgbaToInt(0, 0, 0, 255);
 
 
@@ -29,7 +31,7 @@ function audioToDataArray(file) {
 
 
 
-// Conversion stuff
+// Binary stuff
 function toBinary(number, bit) {
     // Make binary
     let bin = Math.abs(number).toString(2);
@@ -44,7 +46,7 @@ function fromBinary(text) {
 }
 
 
-
+// default conversion method
 function sampleToColor(sample) {
     // console.log(sample);
     let bin = toBinary(
@@ -79,9 +81,12 @@ function audioToImage(file) {
 
     // Convert sample array to a color array
     for (let i = 0; i < dataArray.length; i++) {
-        // console.log(dataArray[i]);
-        dataArray[i] = sampleToColor(dataArray[i]);
-        // console.log(dataArray[i]);
+        switch (conversionMethod) {
+            default:
+                dataArray[i] = sampleToColor(dataArray[i]);
+                break;
+        }
+
     }
 
     // Add pixels if array too small
@@ -117,12 +122,11 @@ switch (_args[2]) {
         audioToImage(_args[3]);
         break;
 
-    // case 'printwav': // For reading the structure of a wav file
-    //     let buffer = fs.readFileSync('./' + _args[3]);
-    //     let channels = wav.decode(buffer);
-    //     console.log(channels.sampleRate);
-    //     console.log(channels.channelData);
-    //     break;
+    case '2':
+        imgX = parseInt(_args[4]);
+        imgY = parseInt(_args[5]);
+        audioToImage(_args[3]);
+        break;
 
     default: // For the lazy
         audioToImage('audin.wav');
