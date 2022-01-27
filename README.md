@@ -1,5 +1,5 @@
 # Img2Audio-Converter
-Simple JS program I wrote to convert between images and audio.
+Simple NodeJS program I wrote to convert between images and audio.
 The idea behind this is to be able to edit or create audio through photoshop software.
 
 I've always wanted to see how audio would look like in image format
