@@ -18,7 +18,7 @@ function writeWav(channels) {
   let buffer = wav.encode(
     channels,
     {
-      sampleRate: 16000, // Default is 16000
+      sampleRate: 32000, // Default is 16000
       numat: true,
       bitDepth: 32,
       floatPoint: true
