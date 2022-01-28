@@ -28,5 +28,4 @@ Note:
 -The `.blend` file is for quickly generating/rendering images with Blender to test the conversion,
 but any image (PNG or JPEG) should work.
 
--Be warned that large images (4K and such) will generate very long `.wav`s (Roughly 3 minutes
-that can quickly take up lots of space on your hardrive.
+-Be warned that large images (4K and such) will generate big `.wav`s (About 2 minutes long and 40MB-ish of disk space).
