@@ -1,4 +1,4 @@
-## Read blow
+## Read this before using
 
 This is hella outdated and buggy, I only left this repo up for historical reasons.
 You should use this app instead which is the same concept but rewritten from scratch and much better.
@@ -7,6 +7,7 @@ https://github.com/C-Corpze/Symage
 
 
 # Img2Audio-Converter
+
 Simple NodeJS program I wrote to convert between images and audio.
 The idea behind this is to be able to edit or create audio through photoshop software.
 
