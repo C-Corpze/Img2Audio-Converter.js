@@ -1,3 +1,11 @@
+## Read blow
+
+This is hella outdated and buggy, I only left this repo up for historical reasons.
+You should use this app instead which is the same concept but rewritten from scratch and much better.
+
+https://github.com/C-Corpze/Symage
+
+
 # Img2Audio-Converter
 Simple NodeJS program I wrote to convert between images and audio.
 The idea behind this is to be able to edit or create audio through photoshop software.
@@ -10,6 +18,7 @@ the process can be reversed in order to get the source image/audio back
 out of it.
 
 =====================================================================
+
 Run `install_packages.bat` in command prompt to auto-install all required node packages.
 
 Convert image to audio: `node img2aud def [image.png]`
@@ -19,13 +28,11 @@ Convert audio to image: `node aud2img def [audio.wav] [resX] [resY]`
 
 Note:
 
--Converting audio to images works but not as intended.
+- Converting audio to images works but not as intended.
 
--I want to add more algorithms later.
+- All images/audio must be in the same folder as the program's files.
 
--All images/audio must be in the same folder as the program's files.
-
--The `.blend` file is for quickly generating/rendering images with Blender to test the conversion,
+- The `.blend` file is for quickly generating/rendering images with Blender to test the conversion,
 but any image (PNG or JPEG) should work.
 
--Be warned that large images (4K and such) will generate big `.wav`s (About 2 minutes long and 40MB-ish of disk space).
+- Be warned that large images (4K and such) will generate big `.wav`s (About 2 minutes long and 40MB-ish of disk space).
